@@ -1,0 +1,11 @@
+duckdb
+pandas
+pyarrow
+numpy
+matplotlib
+scipy
+fastavro
+cramjam
+kagglehub
+great_expectations
+psutil
