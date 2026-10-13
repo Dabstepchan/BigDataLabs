@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+pyarrow
+dask[dataframe]
+pyspark
+polars
+duckdb
+great_expectations
+psutil
+kagglehub
+install-jdk
