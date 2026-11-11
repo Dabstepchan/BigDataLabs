@@ -1,0 +1,26 @@
+name: reco
+version: '1.0.0'
+profile: reco
+model-paths: ['models']
+macro-paths: ['macros']
+test-paths: ['tests']
+target-path: target
+clean-targets: ['target', 'logs']
+
+vars:
+  as_of: '2019-10-11 00:00:00'        # конец обрабатываемого пакета (момент расчёта рекомендаций)
+  batch_start: '2019-10-10 00:00:00'  # начало пакета: рекомендации строятся для активных в нём пользователей
+  window_days: 10                     # окно популярности товаров (ЛР-1: лучший HitRate@10 на 10 днях покупок)
+  k: 10                               # длина списка рекомендаций
+  model_name: popular_in_category
+  model_version: '1.0'
+  usd_rub: 84.43                      # курс ЦБ, как в ЛР-1
+  cart_weight: 0                      # вес добавлений в корзину в популярности (0 - только покупки)
+  exclude_bought: true                # не рекомендовать уже купленное в окне
+
+models:
+  reco:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

@@ -1,0 +1,119 @@
+{
+  "expectations": [
+    {
+      "id": "d5a6ab66-c9f5-49e3-a99c-829cb3949a03",
+      "kwargs": {
+        "column": "idempotency_key"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "30cfc696-7afc-4fdf-a74d-ab5010be7d33",
+      "kwargs": {
+        "column": "event_time"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "21fa53e8-f702-40cd-a825-abe5b1d8cbb7",
+      "kwargs": {
+        "column": "event_type"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "c8193f40-7866-450e-8174-45ef9553ee32",
+      "kwargs": {
+        "column": "product_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "c393be7e-d432-4b19-96df-8ab0b2926b71",
+      "kwargs": {
+        "column": "user_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "fee65820-3e36-42f3-9eed-9613f5182c86",
+      "kwargs": {
+        "column": "price"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "a7b22b20-8557-4f1f-a21e-2d1085ae5216",
+      "kwargs": {
+        "column": "user_session"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "3fcbe136-e362-4fef-9cc1-1fee32fea049",
+      "kwargs": {
+        "column": "event_type",
+        "value_set": [
+          "view",
+          "cart",
+          "purchase",
+          "remove_from_cart"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "ade2cef3-16f0-4113-b1fc-e9a970b63c6f",
+      "kwargs": {
+        "column": "price",
+        "max_value": 100000.0,
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "dadcc38e-2edc-4e82-ac1f-282215f2a5ba",
+      "kwargs": {
+        "column": "user_id",
+        "min_value": 1.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "55e77f66-7d31-4ff8-909f-21b8a982614b",
+      "kwargs": {
+        "column": "idempotency_key"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    }
+  ],
+  "id": "34da79fa-9b7f-4345-aead-007a0d68ee50",
+  "meta": {
+    "great_expectations_version": "1.23.2"
+  },
+  "name": "raw_batch",
+  "notes": null
+}

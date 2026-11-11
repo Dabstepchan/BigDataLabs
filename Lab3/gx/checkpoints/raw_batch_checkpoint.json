@@ -1,0 +1,15 @@
+{
+  "actions": [],
+  "id": "99436d6b-a54e-49a6-b3d5-4bcd0c5a9250",
+  "name": "raw_batch_checkpoint",
+  "result_format": {
+    "partial_unexpected_count": 5,
+    "result_format": "SUMMARY"
+  },
+  "validation_definitions": [
+    {
+      "id": "c0ea7547-5c3c-488a-9d8a-ff6c99f87eb9",
+      "name": "raw_batch_vd"
+    }
+  ]
+}

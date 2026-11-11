@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "c03bd19e-03ba-4cca-991a-bda0dd766adb",
+      "name": "recommendations"
+    },
+    "batch_definition": {
+      "id": "1e353d2c-24d2-4b36-bc7c-9790e4a20585",
+      "name": "whole"
+    },
+    "datasource": {
+      "id": "957aad64-ad15-40f0-82a8-bc2ccc517747",
+      "name": "pipeline"
+    }
+  },
+  "id": "119b5506-850d-4f2c-95d2-62aa3a733fd9",
+  "name": "recommendations_vd",
+  "suite": {
+    "id": "998e9b35-892b-4643-9485-954886fd527c",
+    "name": "recommendations"
+  }
+}

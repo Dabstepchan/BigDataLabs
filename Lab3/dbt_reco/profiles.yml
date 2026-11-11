@@ -1,0 +1,12 @@
+reco:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "{{ env_var('LAB3_WAREHOUSE', '../work/warehouse.duckdb') }}"
+      threads: "{{ env_var('LAB3_DBT_THREADS', '2') | int }}"
+      extensions:
+        - delta
+      settings:
+        memory_limit: "{{ env_var('LAB3_DUCKDB_MEM', '1GB') }}"
+        preserve_insertion_order: false

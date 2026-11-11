@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_events
+    description: Очищенные события (без дублей по idempotency_key, цена > 0, пропуски brand/category_code -> unknown)
+    columns:
+      - name: idempotency_key
+        tests: [unique, not_null]
+      - name: event_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['view', 'cart', 'purchase', 'remove_from_cart']
+      - name: user_id
+        tests: [not_null]
+      - name: product_id
+        tests: [not_null]
+      - name: price
+        tests: [positive]

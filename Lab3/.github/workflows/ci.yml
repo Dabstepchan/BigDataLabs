@@ -1,0 +1,65 @@
+name: Data Pipeline CI/CD
+
+on:
+  pull_request:            # каждый PR: тесты данных и пайплайна
+  push:
+    branches: [main]       # после слияния: staging -> smoke -> canary -> production
+
+env:
+  LAKE_ROOT: work          # каталог данных пайплайна (в реальном деплое - общее хранилище)
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Pipeline tests (idempotency, DLQ)
+        run: pytest -q tests
+      - name: Run pipeline on sample data
+        run: python -m pipeline.ci sample-run --root ci_run
+      - name: Run Great Expectations
+        run: python -m pipeline.ci gx --root ci_run
+      - name: Test DBT models
+        run: python -m pipeline.ci dbt-test --root ci_run
+
+  deploy-staging:
+    needs: test
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Deploy to staging (dbt build новой версии модели)
+        run: python -m pipeline.ci deploy-staging --root "$LAKE_ROOT"
+      - name: Run smoke test
+        id: smoke_test
+        run: python smoke_test.py --warehouse "$LAKE_ROOT/staging.duckdb"
+
+  deploy-production:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment: production        # защищённое окружение: запуск только после одобрения ревьюера
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements.txt
+      - name: Canary release (5% пользователей)
+        id: canary
+        run: python -m pipeline.ci canary --root "$LAKE_ROOT" --share 5
+      - name: Deploy to production
+        id: promote
+        if: steps.canary.outcome == 'success'
+        run: python -m pipeline.ci promote --root "$LAKE_ROOT"
+      - name: Automatic rollback
+        if: failure() && steps.promote.outcome != 'skipped'
+        run: python -m pipeline.ci rollback --root "$LAKE_ROOT"

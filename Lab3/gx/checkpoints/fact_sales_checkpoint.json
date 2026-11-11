@@ -1,0 +1,21 @@
+{
+  "actions": [
+    {
+      "name": "update_docs",
+      "site_names": [],
+      "type": "update_data_docs"
+    }
+  ],
+  "id": "7d8f1a02-b01a-4f71-a5b2-88df363e765d",
+  "name": "fact_sales_checkpoint",
+  "result_format": {
+    "partial_unexpected_count": 5,
+    "result_format": "SUMMARY"
+  },
+  "validation_definitions": [
+    {
+      "id": "685f047f-8a98-48a5-9842-05a944401484",
+      "name": "fact_sales_vd"
+    }
+  ]
+}

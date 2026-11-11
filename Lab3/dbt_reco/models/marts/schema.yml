@@ -1,0 +1,57 @@
+version: 2
+
+models:
+  - name: fact_sales
+    description: Покупки (одна строка на событие purchase)
+    columns:
+      - name: sale_id
+        tests: [unique, not_null]
+      - name: amount_usd
+        tests: [not_null, positive]
+      - name: product_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+      - name: user_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_users')
+                field: user_id
+  - name: dim_users
+    columns:
+      - name: user_id
+        tests: [unique, not_null]
+  - name: dim_products
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+  - name: item_popularity
+    columns:
+      - name: product_id
+        tests: [unique, not_null]
+  - name: user_recommendations
+    description: Рекомендации production-модели для пользователей, активных в пакете
+    columns:
+      - name: user_id
+        tests: [not_null]
+      - name: rank
+        tests:
+          - value_between:
+              arguments:
+                min_value: 1
+                max_value: "{{ var('k') }}"
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_products')
+                field: product_id
+      - name: model_version
+        tests:
+          - accepted_values:
+              arguments:
+                values: ["{{ var('model_version') }}"]

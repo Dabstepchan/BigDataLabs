@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "4b736345-c854-466e-989b-0fc0851f7ce6",
+      "name": "raw_batch"
+    },
+    "batch_definition": {
+      "id": "08ec4d40-ad95-4f3e-a53b-4d34b4bc34e7",
+      "name": "whole"
+    },
+    "datasource": {
+      "id": "957aad64-ad15-40f0-82a8-bc2ccc517747",
+      "name": "pipeline"
+    }
+  },
+  "id": "c0ea7547-5c3c-488a-9d8a-ff6c99f87eb9",
+  "name": "raw_batch_vd",
+  "suite": {
+    "id": "34da79fa-9b7f-4345-aead-007a0d68ee50",
+    "name": "raw_batch"
+  }
+}

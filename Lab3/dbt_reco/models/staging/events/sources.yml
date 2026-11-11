@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: lake
+    description: Сырые события в Delta Lake (bronze), загружаются пайплайном через MERGE
+    tables:
+      - name: raw_events
+        meta:
+          external_location: "delta_scan('{{ env_var('LAB3_RAW_PATH', '../work/lake/raw_events') }}')"

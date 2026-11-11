@@ -1,0 +1,21 @@
+{
+  "actions": [
+    {
+      "name": "update_docs",
+      "site_names": [],
+      "type": "update_data_docs"
+    }
+  ],
+  "id": "24b91ab2-632d-4f46-8009-af4df78255e5",
+  "name": "recommendations_checkpoint",
+  "result_format": {
+    "partial_unexpected_count": 5,
+    "result_format": "SUMMARY"
+  },
+  "validation_definitions": [
+    {
+      "id": "119b5506-850d-4f2c-95d2-62aa3a733fd9",
+      "name": "recommendations_vd"
+    }
+  ]
+}

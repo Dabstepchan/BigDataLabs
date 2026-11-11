@@ -1,0 +1,72 @@
+{
+  "expectations": [
+    {
+      "id": "b674884c-c13b-48ed-a21b-29e783ae842f",
+      "kwargs": {
+        "column": "sale_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "6c23fd11-9915-458c-a771-ea3849d6edf0",
+      "kwargs": {
+        "column": "sale_id"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_unique"
+    },
+    {
+      "id": "c5aa730e-3a91-493a-934d-6979392e0e25",
+      "kwargs": {
+        "column": "amount_usd",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "5fa68006-bf09-4e23-acf4-12c96bf2e0af",
+      "kwargs": {
+        "column": "amount_rub"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "0f6891b1-e9bc-4c16-b25b-0aee87abaa94",
+      "kwargs": {
+        "column": "product_in_dim",
+        "value_set": [
+          true
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "ab230db7-9488-497a-bf88-407112e5eada",
+      "kwargs": {
+        "column": "user_in_dim",
+        "value_set": [
+          true
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    }
+  ],
+  "id": "d13b98c9-9658-4780-8ed5-96a9c4d5d3bd",
+  "meta": {
+    "great_expectations_version": "1.23.2"
+  },
+  "name": "fact_sales",
+  "notes": null
+}
