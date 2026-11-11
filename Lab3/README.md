@@ -3,7 +3,7 @@
 
 Промышленный ELT-пайплайн для рекомендательной системы: часовые пакеты кликстрима проходят извлечение, проверку качества с DLQ, загрузку в Delta Lake через MERGE, трансформацию в dbt, проверки Great Expectations и публикацию рекомендаций. Пошаговая реализация и результаты - в ноутбуке `Lab_BigData_3.ipynb`.
 
-**Вариант 5 (последняя цифра зачётки):** E-commerce Clickstream, файл `2019-Oct.csv` из набора [eCommerce behavior data from multi category store](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store) (Kaggle).
+**Вариант 5:** E-commerce Clickstream, файл `2019-Oct.csv` из набора [eCommerce behavior data from multi category store](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store) (Kaggle).
 
 **Бизнес-сценарий:** 2. Рекомендательная система - ежечасное обновление рекомендаций, задержка обработки < 45 минут, согласованность с production-моделью, fallback на предыдущие рекомендации.
 
