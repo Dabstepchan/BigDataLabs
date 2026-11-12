@@ -3,7 +3,7 @@
 
 ML-пайплайн рекомендательной системы от прототипа до production: выбор модели и Model Registry в MLflow, Feature Store на Feast, инференс-сервис на FastAPI с canary, shadow и откатом, мониторинг дрейфа, сравнение пакетного и онлайн-обучения, обработка холодного старта. Отдельно - прогноз температуры сенсора NAB с автоотключением. Пошаговая реализация и результаты - в ноутбуке `Lab_BigData_4.ipynb`.
 
-**Вариант 5 (последняя цифра зачётки):** E-commerce Clickstream, файл `2019-Oct.csv` ([Kaggle](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store)); уникальное требование - обработка холодных стартеров. Часть 8 - ряд NAB `ambient_temperature_system_failure.csv`.
+**Вариант 5:** E-commerce Clickstream, файл `2019-Oct.csv` ([Kaggle](https://www.kaggle.com/datasets/mkechinov/ecommerce-behavior-data-from-multi-category-store)); уникальное требование - обработка холодных стартеров. Часть 8 - ряд NAB `ambient_temperature_system_failure.csv`.
 
 **Бизнес-сценарий:** 2. Рекомендательная система (latency < 100 мс, рост CTR на 10%, согласованность фич offline/online).
 
